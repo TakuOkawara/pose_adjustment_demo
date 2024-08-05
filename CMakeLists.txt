@@ -31,24 +31,25 @@ target_include_directories(small_pose_adjustment_2d PUBLIC
   ${Iridescence_INCLUDE_DIRS})
 
 # Pose Graph Optimization 2D using manhattan dataset
-add_executable(se2_gtsam src/pose_adjustment_2d.cpp src/demo_iridescence.cpp src/customfactor.cpp)
-target_link_libraries(se2_gtsam gtsam 
+add_executable(pose_adjustment_2d src/pose_adjustment_2d.cpp src/demo_iridescence.cpp src/customfactor.cpp)
+target_link_libraries(pose_adjustment_2d gtsam 
   ${Iridescence_LIBRARIES} ${EIGEN3_LIBRARIES})
-target_include_directories(se2_gtsam PUBLIC
+target_include_directories(pose_adjustment_2d PUBLIC
   ${Iridescence_INCLUDE_DIRS})
 
 # Pose Graph Optimization 3D using sphere dataset
-add_executable(se3_gtsam src/pose_adjustment_3d.cpp src/demo_iridescence.cpp src/customfactor.cpp)
-target_link_libraries(se3_gtsam gtsam 
+add_executable(pose_adjustment_3d src/pose_adjustment_3d.cpp src/demo_iridescence.cpp src/customfactor.cpp)
+target_link_libraries(pose_adjustment_3d gtsam 
   ${Iridescence_LIBRARIES} ${EIGEN3_LIBRARIES})
-target_include_directories(se3_gtsam PUBLIC
+target_include_directories(pose_adjustment_3d PUBLIC
   ${Iridescence_INCLUDE_DIRS})
 
 # Pose Graph Optimization 3D using sphere dataset with custom between factor
-add_executable(se3_gtsam_custom src/pose_adjustment_3d_with_customfactor.cpp src/demo_iridescence.cpp src/customfactor.cpp)
-target_link_libraries(se3_gtsam_custom gtsam 
+# This custom between factor is the same as BetweenFactor<Pose3>
+add_executable(pose_adjustment_3d_with_customfactor src/pose_adjustment_3d_with_customfactor.cpp src/demo_iridescence.cpp src/customfactor.cpp)
+target_link_libraries(pose_adjustment_3d_with_customfactor gtsam 
   ${Iridescence_LIBRARIES} ${EIGEN3_LIBRARIES})
-target_include_directories(se3_gtsam_custom PUBLIC
+target_include_directories(pose_adjustment_3d_with_customfactor PUBLIC
   ${Iridescence_INCLUDE_DIRS})
 
 
