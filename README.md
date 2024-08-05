@@ -7,7 +7,9 @@
   * Library for factor graph optimization
 * [iridescence](https://github.com/koide3/iridescence)
   * Library for visualization
- 
+
+We tested all codes with Ubuntu 22.04.
+
 # Preparation to execute sample codes
 * Please execute the following commands before executing sample codes.
 * All sample codes assume that you are in the build directory made by the following command.
