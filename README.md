@@ -34,7 +34,7 @@ make
 
 ## [pose_adjustment_2d.cpp](https://github.com/TakuOkawara/pose_adjustment_demo/blob/main/src/pose_adjustment_2d.cpp)
 * This example is **2D pose graph optimization using a pose graph**.
-* This code uses the Manhattan dataset.
+* This code uses the [Manhattan dataset](https://github.com/OpenSLAM-org/openslam_vertigo).
 * This code can be executed by the following commands
 ```commandline
 cd build
@@ -46,7 +46,7 @@ make
 
 ## [pose_adjustment_3d.cpp](https://github.com/TakuOkawara/pose_adjustment_demo/blob/main/src/pose_adjustment_3d.cpp)
 * This example is **3D pose graph optimization using a pose graph**.
-* This code uses the Sphere dataset.
+* This code uses the [Sphere dataset](https://github.com/OpenSLAM-org/openslam_vertigo).
 * This code can be executed by the following commands
 ```commandline
 cd build
