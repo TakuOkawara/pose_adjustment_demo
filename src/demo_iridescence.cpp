@@ -47,13 +47,12 @@ void draw_3d_trajectory_and_all_constraints(const gtsam::NonlinearFactorGraph &g
     }
 }
 
+struct VertexWithKey {
+    Eigen::Vector3f vertex;
+    Key key;
+};
 
-void draw_3d_trajectory_and_only_3_constraints(const gtsam::NonlinearFactorGraph &graph, const gtsam::Values &input_values, std::shared_ptr<guik::LightViewer> &viewer, const int line_id){
-
-    struct VertexWithKey {
-        Eigen::Vector3f vertex;
-        Key key;
-    };
+void draw_3d_trajectory_and_only_3_constraints(const gtsam::NonlinearFactorGraph &graph, const gtsam::Values &input_values, std::shared_ptr<guik::LightViewer> &viewer, const int line_id, const bool is_custom_factor){
 
     std::vector<std::pair<VertexWithKey, VertexWithKey>> graph_edges;
     std::vector<VertexWithKey> graph_vertices;
@@ -61,29 +60,50 @@ void draw_3d_trajectory_and_only_3_constraints(const gtsam::NonlinearFactorGraph
     std::vector<Eigen::Vector3f> value_vertices;
     std::vector<Eigen::Vector4f> line_colors;
 
-    for (const auto& factor : graph) {
-    // Convert the factor to a BetweenFactor<Pose3>
-    auto betweenFactor = boost::dynamic_pointer_cast<CustomBetweenFactor>(factor);
-        if (betweenFactor) {
-            Key key1 = betweenFactor->key1();
-            Key key2 = betweenFactor->key2();
+    // Set CustomBetweenFactor for line_colors
+    if (is_custom_factor == true) {
+        std::cout << "custom factor is used\n";
+        for (const auto& factor : graph) {
+            auto customFactor = boost::dynamic_pointer_cast<CustomBetweenFactor>(factor);
+            if (customFactor) {
+                Key key1 = customFactor->key1();
+                Key key2 = customFactor->key2();
 
-            // Confirm that both keys exist in input_values and are of type gtsam::Pose3
-            if (input_values.exists<Pose3>(key1) && input_values.exists<Pose3>(key2)) {
-                Pose3 pose1 = input_values.at<Pose3>(key1);
-                Pose3 pose2 = input_values.at<Pose3>(key2);
+                if (input_values.exists<gtsam::Pose3>(key1) && input_values.exists<gtsam::Pose3>(key2)) {
+                    gtsam::Pose3 pose1 = input_values.at<gtsam::Pose3>(key1);
+                    gtsam::Pose3 pose2 = input_values.at<gtsam::Pose3>(key2);
 
-                VertexWithKey vertex1{Eigen::Vector3f(pose1.x(), pose1.y(), pose1.z()), key1};
-                VertexWithKey vertex2{Eigen::Vector3f(pose2.x(), pose2.y(), pose2.z()), key2};
+                    VertexWithKey vertex1{Eigen::Vector3f(pose1.x(), pose1.y(), pose1.z()), key1};
+                    VertexWithKey vertex2{Eigen::Vector3f(pose2.x(), pose2.y(), pose2.z()), key2};
 
-                graph_vertices.push_back(vertex1);
-                graph_vertices.push_back(vertex2);
+                    graph_vertices.push_back(vertex1);
+                    graph_vertices.push_back(vertex2);
+                    graph_edges.emplace_back(vertex1, vertex2);
+                    line_colors.push_back(glk::colormapf(glk::COLORMAP::TURBO, 3.0));
+                }
+            }
+        }
+    }
+    // Set gtsam::BetweenFactor<gtsam::Pose3> for line_colors
+    else {
+        for (const auto& factor : graph) {
+            auto baseFactor = boost::dynamic_pointer_cast<gtsam::BetweenFactor<gtsam::Pose3>>(factor);
+            if (baseFactor) {
+                Key key1 = baseFactor->key1();
+                Key key2 = baseFactor->key2();
 
-                // Store edges as pairs
-                graph_edges.emplace_back(vertex1, vertex2);
-                
-                // Add colors
-                line_colors.push_back(glk::colormapf(glk::COLORMAP::TURBO, 3.0));
+                if (input_values.exists<gtsam::Pose3>(key1) && input_values.exists<gtsam::Pose3>(key2)) {
+                    gtsam::Pose3 pose1 = input_values.at<gtsam::Pose3>(key1);
+                    gtsam::Pose3 pose2 = input_values.at<gtsam::Pose3>(key2);
+
+                    VertexWithKey vertex1{Eigen::Vector3f(pose1.x(), pose1.y(), pose1.z()), key1};
+                    VertexWithKey vertex2{Eigen::Vector3f(pose2.x(), pose2.y(), pose2.z()), key2};
+
+                    graph_vertices.push_back(vertex1);
+                    graph_vertices.push_back(vertex2);
+                    graph_edges.emplace_back(vertex1, vertex2);
+                    line_colors.push_back(glk::colormapf(glk::COLORMAP::TURBO, 3.0));
+                }
             }
         }
     }

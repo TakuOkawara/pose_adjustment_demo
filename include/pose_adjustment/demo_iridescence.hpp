@@ -28,7 +28,7 @@ void draw_3d_trajectory_and_all_constraints(const gtsam::NonlinearFactorGraph &g
 
 void draw_2d_trajectory_and_all_constraints(const gtsam::NonlinearFactorGraph &graph, const gtsam::Values &input_values, std::shared_ptr<guik::LightViewer> &viewer, const int line_id = 0);
 
-void draw_3d_trajectory_and_only_3_constraints(const gtsam::NonlinearFactorGraph &graph, const gtsam::Values &input_values, std::shared_ptr<guik::LightViewer> &viewer, const int line_id = 0);
+void draw_3d_trajectory_and_only_3_constraints(const gtsam::NonlinearFactorGraph &graph, const gtsam::Values &input_values, std::shared_ptr<guik::LightViewer> &viewer, const int line_id = 0, const bool is_custom_factor = false);
 
 void draw_2d_trajectory_and_only_3_constraints(const gtsam::NonlinearFactorGraph &graph, const gtsam::Values &input_values, std::shared_ptr<guik::LightViewer> &viewer, const int line_id = 0);
 

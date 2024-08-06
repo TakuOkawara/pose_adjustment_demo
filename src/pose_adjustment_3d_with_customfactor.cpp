@@ -82,7 +82,7 @@ int main(int argc, char** argv) {
     guik::LightViewer* raw_ptr = guik::LightViewer::instance();
     std::shared_ptr<guik::LightViewer> viewer(raw_ptr);
     // Draw lines for initial poses
-    draw_3d_trajectory_and_only_3_constraints(graph, initial, viewer, 0);
+    draw_3d_trajectory_and_only_3_constraints(graph, initial, viewer, 0, true);
     std::cout << "Drawing the initial line" << std::endl;
 
     // Add prior on the first pose
@@ -104,7 +104,7 @@ int main(int argc, char** argv) {
     std::cout << "Optimization complete" << std::endl;
 
     // draw the optimized line
-    draw_3d_trajectory_and_only_3_constraints(graph, result, viewer, 1);
+    draw_3d_trajectory_and_only_3_constraints(graph, result, viewer, 1, true);
 
     std::cout << "initial error=" << graph.error(initial) << std::endl;
     std::cout << "final error=" << graph.error(result) << std::endl;
