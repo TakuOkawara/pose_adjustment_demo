@@ -74,8 +74,8 @@ int main(int argc, char** argv) {
     NonlinearFactorGraph graph;
     Values initial;
     readG2OFile(filename, graph, initial);
-
-    auto viewer = guik::LightViewer::instance();
+    guik::LightViewer* raw_ptr = guik::LightViewer::instance();
+    std::shared_ptr<guik::LightViewer> viewer(raw_ptr);
 
     // Draw lines for initial poses
     draw_3d_trajectory_and_only_3_constraints(graph, initial, viewer, 0);

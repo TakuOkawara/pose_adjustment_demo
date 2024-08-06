@@ -101,11 +101,11 @@ void draw_3d_trajectory_and_only_3_constraints(const gtsam::NonlinearFactorGraph
         const auto& edge = graph_edges[i];
         top3_vertices.push_back({edge.first.vertex, edge.second.vertex});
 
-    std::cout << "Longest Edge " << i + 1 << ": (" << edge.first.vertex.x() << ", " 
-              << edge.first.vertex.y() << ", " << edge.first.vertex.z() << ", Key: " 
-              << edge.first.key << ") -> (" 
-              << edge.second.vertex.x() << ", " << edge.second.vertex.y() << ", " 
-              << edge.second.vertex.z() << ", Key: " << edge.second.key << ")" << std::endl;
+    // std::cout << "Longest Edge " << i + 1 << ": (" << edge.first.vertex.x() << ", " 
+    //           << edge.first.vertex.y() << ", " << edge.first.vertex.z() << ", Key: " 
+    //           << edge.first.key << ") -> (" 
+    //           << edge.second.vertex.x() << ", " << edge.second.vertex.y() << ", " 
+    //           << edge.second.vertex.z() << ", Key: " << edge.second.key << ")" << std::endl;
     }
 
     // Extract the vertices from the gtsam::Values object
@@ -242,11 +242,11 @@ void draw_2d_trajectory_and_only_3_constraints(const gtsam::NonlinearFactorGraph
         const auto& edge = graph_edges[i];
         top3_vertices.push_back({edge.first.vertex, edge.second.vertex});
 
-    std::cout << "Longest Edge " << i + 1 << ": (" << edge.first.vertex.x() << ", " 
-              << edge.first.vertex.y()  << ", Key: " 
-              << static_cast<int>(edge.first.key) << ") -> (" 
-              << edge.second.vertex.x() << ", " << edge.second.vertex.y() << ", " 
-              << ", Key: " << static_cast<int>(edge.second.key) << ")" << std::endl;
+    // std::cout << "Longest Edge " << i + 1 << ": (" << edge.first.vertex.x() << ", " 
+    //           << edge.first.vertex.y()  << ", Key: " 
+    //           << static_cast<int>(edge.first.key) << ") -> (" 
+    //           << edge.second.vertex.x() << ", " << edge.second.vertex.y() << ", " 
+    //           << ", Key: " << static_cast<int>(edge.second.key) << ")" << std::endl;
     }
 
     // Extract the vertices from the gtsam::Values object
