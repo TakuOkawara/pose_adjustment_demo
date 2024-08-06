@@ -33,7 +33,6 @@
 
 *.jpg
 *.png
-*cmake
 
 .vscode/*
 build/*
