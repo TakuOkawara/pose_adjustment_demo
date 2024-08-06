@@ -72,3 +72,12 @@ cmake ..
 make
 ./pose_adjustment_3d_with_customfactor 
 ```
+
+# Trouble shooting
+
+## error while loading shared libraries: libmetis-gtsam.so: cannot open shared object file: No such file or directory
+Please execute the following commands when the above execution error occurs.
+```commandline
+echo "export LD_LIBRARY_PATH=/usr/local/lib:$LD_LIBRARY_PATH" >> ~/.bashrc
+source ~/.bashrc
+```
