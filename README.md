@@ -2,8 +2,9 @@
 * This repository has some examples of pose adjustment using a pose graph.
 * All pose graphs are implemented as a factor graph defined by GTSAM.
 * This repository was used for demonstration of [this seminar](https://www.j-techno.co.jp/seminar/seminar-63357/).
-  * 日本語のPDF資料は、[本レポジトリ内](https://github.com/TakuOkawara/pose_adjustment_demo/blob/main/%E8%B3%87%E6%96%99%20SLAM%EF%BC%88%E8%87%AA%E5%B7%B1%E4%BD%8D%E7%BD%AE%E6%8E%A8%E5%AE%9A%E3%83%BB%E5%9C%B0%E5%9B%B3%E6%A7%8B%E7%AF%89%EF%BC%89%E3%81%AE%E5%9F%BA%E7%A4%8E%E3%81%A8%E9%AB%98%E6%80%A7%E8%83%BD%E5%8C%96%E6%8A%80%E8%A1%93%E3%81%8A%E3%82%88%E3%81%B3%E5%AE%9F%E8%A3%85%E3%83%BB%E5%AE%9F%E5%BF%9C%E7%94%A8%E3%81%AE%E3%83%9D%E3%82%A4%E3%83%B3%E3%83%88.pdf)に置いてあります。
-  * 日本語の環境構築方法も、[本レポジトリ内](https://github.com/TakuOkawara/pose_adjustment_demo/blob/main/%E4%BD%9C%E6%A5%AD%E6%89%8B%E9%A0%86%E6%9B%B8.md)に置いてあります。
+  * セミナー名: SLAM（自己位置推定・地図構築）の基礎と高性能化技術および実装・実応用のポイント
+    * 日本語のPDF資料は、[本レポジトリ内](https://github.com/TakuOkawara/pose_adjustment_demo/blob/main/%E8%B3%87%E6%96%99%20SLAM%EF%BC%88%E8%87%AA%E5%B7%B1%E4%BD%8D%E7%BD%AE%E6%8E%A8%E5%AE%9A%E3%83%BB%E5%9C%B0%E5%9B%B3%E6%A7%8B%E7%AF%89%EF%BC%89%E3%81%AE%E5%9F%BA%E7%A4%8E%E3%81%A8%E9%AB%98%E6%80%A7%E8%83%BD%E5%8C%96%E6%8A%80%E8%A1%93%E3%81%8A%E3%82%88%E3%81%B3%E5%AE%9F%E8%A3%85%E3%83%BB%E5%AE%9F%E5%BF%9C%E7%94%A8%E3%81%AE%E3%83%9D%E3%82%A4%E3%83%B3%E3%83%88.pdf)に置いてあります。
+    * 日本語の環境構築方法も、[本レポジトリ内](https://github.com/TakuOkawara/pose_adjustment_demo/blob/main/%E4%BD%9C%E6%A5%AD%E6%89%8B%E9%A0%86%E6%9B%B8.md)に置いてあります。
 
 # Dependencies
 * [gtsam](https://github.com/borglab/gtsam)
