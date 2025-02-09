@@ -44,7 +44,7 @@ cmake ..
 make
 ./pose_adjustment_2d 
 ```
-<img src="https://github.com/user-attachments/assets/aa1a0767-bb21-4f58-828b-c700c19d14f0" alt="image" width="50%">
+<img src="https://github.com/user-attachments/assets/201d9b3c-45e8-431d-80c3-caff51c43da7" alt="image" width="60%">
 
 ## [pose_adjustment_3d.cpp](https://github.com/TakuOkawara/pose_adjustment_demo/blob/main/src/pose_adjustment_3d.cpp)
 * This example is **3D pose graph optimization using a pose graph**.
@@ -56,7 +56,7 @@ cmake ..
 make
 ./pose_adjustment_3d 
 ```
-<img src="https://github.com/user-attachments/assets/70f02f60-711d-4d36-87e7-1e4fe8c626d4" alt="image" width="50%">
+<img src="https://github.com/user-attachments/assets/9fc5ae9b-6cb7-4c19-97da-25db896e0529" alt="image" width="60%">
 
 
 ## [pose_adjustment_3d_with_customfactor.cpp](https://github.com/TakuOkawara/pose_adjustment_demo/blob/main/src/pose_adjustment_3d_with_customfactor.cpp)
