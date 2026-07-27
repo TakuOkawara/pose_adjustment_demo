@@ -1,7 +1,7 @@
 # Overview
 * This repository has some examples of pose adjustment using a pose graph.
 * All pose graphs are implemented as a factor graph defined by GTSAM.
-* This repository was used for demonstration of [this seminar](https://www.j-techno.co.jp/seminar/seminar-63357/).
+* This repository was used for the demonstration of [this seminar](https://www.j-techno.co.jp/seminar/seminar-63357/) and [this](https://www.j-techno.co.jp/seminar/seminar-80916/).
   * セミナー名: SLAM（自己位置推定・地図構築）の基礎と高性能化技術および実装・実応用のポイント
 
 # Dependencies
